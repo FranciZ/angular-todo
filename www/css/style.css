@@ -1,0 +1,75 @@
+/* Empty. Add your own CSS if you like */
+
+
+.todo-input[type='text']{
+    
+    position: relative;
+    box-shadow:0 0 5px #888;
+    padding:10px 20px;
+    font-size:30px;
+    height: auto;
+    width:100%;
+    line-height: normal;
+    font-weight: 300;
+    
+}
+
+.title-done{
+    
+    text-decoration: line-through;
+    color:#999;
+    
+}
+
+.num-left{
+    
+    padding:10px;
+    color:#777;
+    
+}
+
+.remove-button{
+    
+    position: absolute;
+    right:20px;
+    top:22px;
+    color:#ff4e00;
+    
+}
+
+.checkbox{
+    
+    position: absolute;
+    top:13px;
+    left:10px;
+    border:1px solid #ddd;
+    width:33px;
+    height:33px;
+    border-radius: 20px;
+       
+}
+
+.title{
+    
+    margin-left:40px;
+    
+    transition:all 0.3s;
+    
+}
+
+.list-item{
+    
+    position:relative;
+    border-bottom:1px solid #ddd;
+    line-height: 40px;
+    padding:10px 20px;
+    font-size:18px;
+    font-weight: 300;
+    
+}
+
+.list-items{
+    
+    box-shadow:0 0 5px #888;
+    
+}

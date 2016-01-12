@@ -1,5 +1,10 @@
 /* Empty. Add your own CSS if you like */
 
+.list-item::before{
+    
+    content: '';
+    
+}
 
 .todo-input[type='text']{
     

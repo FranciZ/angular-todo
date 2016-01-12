@@ -15,8 +15,8 @@
 
     <!-- ionic/angularjs js -->
     <script src="lib/ionic/js/ionic.bundle.js"></script>
-      <script src="lib/localforage.min.js"></script>
-      <script src="lib/angular-localForage.min.js"></script>
+    <script src="lib/localforage.min.js"></script>
+    <script src="lib/angular-localForage.min.js"></script>
 
     <!-- cordova script (this will be a 404 during development) -->
     <script src="cordova.js"></script>
@@ -25,27 +25,46 @@
     <script src="js/app.js"></script>
     <script src="js/controller.js"></script>
   </head>
-  <body ng-app="starter">
+  <body ng-app="starter" ng-cloak="true">
 
     <ion-pane ng-controller="TodoCtrl">
       <ion-content padding="true">
           
-          <input type="text" ng-keydown="onKeyPress($event)" class="todo-input" placeholder="What needs to be done?" ng-model="model.newTodo" />
+          <form ng-submit="formSubmit()">
           
+          <input 
+                 type="text" 
+                 class="todo-input" 
+                 placeholder="What needs to be done?" 
+                 ng-model="model.newTodo" />
+          
+        </form>  
+            
           <div class="list-items">
-            <div class="list-item" ng-mouseleave="onLeave(item)" ng-mouseenter="onEnter(item)" ng-repeat="item in items">
-                <div class="checkbox" ng-click="toggleDone(item)">
-                    <div class="icon-check" ng-if="item.done"></div>
-                </div>
-                <div class="title" ng-class="{'title-done':item.done}">{{item.title}}</div>
-                <div class="remove-button" ng-click="removeItem($index)" ng-if="item.over">
-                    <div class="icon-cross"></div>
-                </div>
+            <div 
+                     class="list-item" 
+                     ng-mouseleave="onLeave(item)" 
+                     ng-mouseenter="onEnter(item)" 
+                     ng-repeat="item in items">
+
+                    <div class="checkbox" ng-click="toggleDone(item)">
+                        <div class="icon-check" ng-if="item.done"></div>
+                    </div>
+                    <div 
+                         class="title" 
+                         ng-class="{'title-done':item.done}">
+                        {{item.title}}
+                    </div>
+                    <div 
+                         class="remove-button" 
+                         ng-click="removeItem($index)" 
+                         ng-if="item.over">
+                        <div class="icon-cross"></div>
+                    </div>
               </div>
               <div class="num-left">Left to do: {{model.numLeft}}</div>
           </div>
-          
-          
+           
       </ion-content>
     </ion-pane>
       

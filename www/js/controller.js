@@ -5,7 +5,10 @@ angular.module('starter').controller('TodoCtrl', function($scope, $localForage){
     
       $localForage.getItem('myItems').then(function(data) {
 
-          $scope.items = data;
+          if(data){
+            $scope.items = data;
+          }
+          
           getNumLeft();
 
         });
@@ -55,38 +58,47 @@ angular.module('starter').controller('TodoCtrl', function($scope, $localForage){
         
         var numLeft = 0;
         
-        for(var i=0;i<$scope.items.length;i++){
-            
-            var item = $scope.items[i];
-            
-            if(!item.done){
-                
-                numLeft++;
-                
+        if($scope.items){
+
+            for(var i=0;i<$scope.items.length;i++){
+
+                var item = $scope.items[i];
+
+                if(!item.done){
+
+                    numLeft++;
+
+                }
+
             }
-            
+
+            $scope.model.numLeft = numLeft;
+
         }
-        
-        $scope.model.numLeft = numLeft;
         
     }
     
-    $scope.onKeyPress = function(evt){
+    $scope.formSubmit = function(){
         
-        if(evt.keyCode === 13){
-            
-            // enter/return pressed
-            
-            $scope.items.push({ title:$scope.model.newTodo });
-            
-            $scope.model.newTodo = '';
-            
-            getNumLeft();
-               
-        }
+        addItem();
         
-    };
+    }
+    
+    function addItem(){
+        
+        $scope.items.push({ title:$scope.model.newTodo });
+            
+        $scope.model.newTodo = '';
+
+        getNumLeft();
+        
+    }
     
     getNumLeft();
     
 });
+
+
+
+
+
